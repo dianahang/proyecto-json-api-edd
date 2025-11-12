@@ -9,6 +9,12 @@
   <artifactId>RickAndMortyAPI</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <!--Agregar propiedades de Maven-->
+  <properties>
+  		<maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+  
   <!--Agregar dependencia para json-->
   <dependencies>
   		<dependency>
