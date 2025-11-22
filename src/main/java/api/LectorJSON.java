@@ -8,58 +8,73 @@ import java.net.URL;
 
 public class LectorJSON {
 	public static void main(String[] args) {
+		//Atributo (endpoint Rick y Morty API)
+		String url = "https://rickandmortyapi.com/api/character";
+		
 		try {
-			//Instancia para la petición al endpoint (Rick y Morty API)
-			URL url = new URL("https://rickandmortyapi.com/api/character");
+			String json = consumirAPI(url);
+			JSONObject object = castJSON(json);
+			mostrarResultados(object);
 			
-			//Generar conexión a protocolo HTTP
-			HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-			
-			//Método de consulta (PUT, GET, POST, DELETE, ETC)
-			conexion.setRequestMethod("GET");
-			
-			//Validar Status Code (200, 300, 400, etc) -> Conexión exitosa o no
-			int statusCode = conexion.getResponseCode();
-			
-			if (statusCode == 200) {
-				//Leer el flujo de bytes del input stream
-				InputStream input = conexion.getInputStream();
-				byte[] arrBytes = input.readAllBytes();
-				
-				//Construir el contenido de JSON
-				String contJson = "";
-				
-				//Recorrer respuesta con un for each
-				for (byte aux: arrBytes) {
-					contJson += (char)aux;
-				}
-
-				//Instancia de un JSONObject (ya interpretado)
-				JSONObject json = new JSONObject(contJson);
-				
-				//Arreglo para manipular los resultados de la API
-				JSONArray arrResults = json.getJSONArray("results"); 
-				
-				//Extraer propiedades del JSON
-				for(Object obj : arrResults) {
-					JSONObject personaje = (JSONObject)obj;
-					System.out.println(personaje.toString(4));
-					System.out.println("\n");
-					
-				}
-				
-				conexion.disconnect();
-				
-			} else {
-				//Si no hay éxito de conexión, lanza una excepción
-				throw new RuntimeException("Error de conexión con la API. Code: " + statusCode);
-			}
 		} catch (Exception e) {
-			/*	Lanzar excepciones para el control del endpoint y de la conexión
-			 * 	al protocolo HTTP. 
-			 */
-			throw new RuntimeException("Ha habido un error: \n" + e);
+			throw new RuntimeException("Ha ocurrido un error:\n" + e.getMessage());
 		}
+			
 	} //Main
-
+	
+	/*	Métodos*********************************************************
+	 * 	Consumir API y devolver el JSON: Lanzar excepciones para el 
+	 * 	control del endpoint y de la conexión al protocolo HTTP. 
+	 */
+	public static String consumirAPI(String link) throws Exception {
+		//Instancia para la petición al endpoint 
+		URL url = new URL(link);
+		
+		//Generar conexión a protocolo HTTP
+		HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+		
+		//Método de consulta (PUT, GET, POST, DELETE, ETC)
+		conexion.setRequestMethod("GET");
+		
+		//Validar Status Code (200, 300, 400, etc) -> Conexión exitosa o no
+		int statusCode = conexion.getResponseCode();
+		
+		if (statusCode != 200) {
+			throw new RuntimeException("Error de conexión HTTP: " + statusCode);
+		}
+		
+		//Leer el flujo de bytes del input stream
+		InputStream input = conexion.getInputStream();
+		byte[] arrBytes = input.readAllBytes();
+		
+		//Construir el contenido de JSON
+		String contJson = "";
+		
+		//Recorrer respuesta con un for each
+		for (byte aux: arrBytes) {
+			contJson += (char)aux;
+		}
+		
+		conexion.disconnect();
+		
+		return contJson;
+	}
+	
+	// Castear String de JSON a un JSONObject
+	public static JSONObject castJSON(String contJson) {
+		return new JSONObject(contJson);
+	}
+	
+	// Imprimir resultados en consola
+	public static void mostrarResultados(JSONObject json) {
+		//Arreglo para manipular los resultados de la API
+		JSONArray arrResults = json.getJSONArray("results"); 
+		
+		//Extraer propiedades del JSON
+		for(Object obj : arrResults) {
+			JSONObject personaje = (JSONObject)obj;
+			System.out.println(personaje.toString(4));
+			System.out.println("\n");
+		}
+	}
 }
