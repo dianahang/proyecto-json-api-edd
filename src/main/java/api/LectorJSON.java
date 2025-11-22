@@ -33,7 +33,20 @@ public class LectorJSON {
 				for (byte aux: arrBytes) {
 					contJson += (char)aux;
 				}
-				System.out.println(contJson);
+
+				//Instancia de un JSONObject (ya interpretado)
+				JSONObject json = new JSONObject(contJson);
+				
+				//Arreglo para manipular los resultados de la API
+				JSONArray arrResults = json.getJSONArray("results"); 
+				
+				//Extraer propiedades del JSON
+				for(Object obj : arrResults) {
+					JSONObject personaje = (JSONObject)obj;
+					System.out.println(personaje.toString(4));
+					System.out.println("\n");
+					
+				}
 				
 				conexion.disconnect();
 				
@@ -45,8 +58,8 @@ public class LectorJSON {
 			/*	Lanzar excepciones para el control del endpoint y de la conexión
 			 * 	al protocolo HTTP. 
 			 */
-			throw new RuntimeException("Error en el link proporcionado: \n" + e);
+			throw new RuntimeException("Ha habido un error: \n" + e);
 		}
-	}
+	} //Main
 
 }
