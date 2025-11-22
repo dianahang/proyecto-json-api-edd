@@ -9,14 +9,28 @@
   <artifactId>RickAndMortyAPI</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  <!--Agregar dependencia para json-->
+  <!--Agregar propiedades de Maven-->
+  <properties>
+  		<maven.compiler.source>11</maven.compiler.source>
+  		<maven.compiler.target>11</maven.compiler.target>
+  </properties>
+  
   <dependencies>
+  		<!--Agregar dependencia para json-->
   		<dependency>
   			<groupId>org.json</groupId>
         	<artifactId>json</artifactId>
         	<version>20231013</version>
   		</dependency>
+  		
+  		<!-- Se agrega dependencia para consumir API-->
+  		<dependency>
+  			<groupId> com.squareup.okhttp3</groupId>
+  			<artifactId>okhttp</artifactId>
+  			<version>4.11.0</version>
+  		</dependency>
   </dependencies>
+  
   
   
 </project>
