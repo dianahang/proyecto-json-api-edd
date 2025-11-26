@@ -100,18 +100,22 @@ En este caso, se realizó una petición GET a la API de Rick and Morty y se reci
 
 - **¿Por qué usar JSONObject y JSONArray?**
 
-La estructura de la API tiene:
+    La estructura de la API tiene:
 
-- Un objeto JSON
-- Un arreglo "results" que contiene cada personaje en forma de objeto
-
-Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en `{clave : valor}` y a su vez `JSONArray`, que interpreta las listas de estos objetos JSON.
+    - Un objeto JSON
+    - Un arreglo "results" que contiene cada personaje en forma de objeto
+    
+    Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en `{clave : valor}` y a su vez `JSONArray`, que interpreta las listas de estos objetos JSON.
 
 - **¿Por qué se utiliza InputStream?**
 
-Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
+    Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
 
 - **Jackson, JsonNode y ObjectMapper**
+
+  Jackson es una biblioteca que contiene clases como `JsonNode`y `ObjectMapper`, las cuales nos sirven para representar los objetos (en este caso los JSONObjects) como árboles (LinkHashMap).
+Es decir, nos permite representar cualquier tipo de nodo JSON como objetos, o convertir de un JSONNode a un objeto.
+Esto facilita la manipulación, ya que gestiona de manera ordenada el recorrido y modificación de los datos.
 
 > [!TIP] 
 > Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
