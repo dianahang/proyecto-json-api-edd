@@ -9,7 +9,7 @@
     -   [Contenido](#contenido)
     -   [Detalles](#detalles)
     -   [Autores](#autores)
-    -   [Créditos](#créditos)
+    -   [Referencias](#referencias)
 
 <!--toc:end-->
 
@@ -105,7 +105,7 @@ La estructura de la API tiene:
 
 Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en `{clave : valor}` y a su vez `JSONArray`, que interpreta las listas de estos objetos JSON.
 
-**¿Por qué se utiliza InputStream?**
+- **¿Por qué se utiliza InputStream?**
 
 Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
 
@@ -119,11 +119,15 @@ Al realizar una petición HTTP, el servidor envía bytes, así que la superclase
 
 -   García Melgarejo Diana Karina.
 
-## Créditos
+## Referencias
 
 Este proyecto hace uso de la API pública:
 
-- Rick and Morty API — https://rickandmortyapi.com/
+- Rick and Morty API — https://rickandmortyapi.com/api/character
 
 Y fue desarrollado con fines académicos utilizando Java y Maven.
+
+- Otras referencias:
+    - [Consumir una API y deserealizar objeto en JSON en Java](https://youtu.be/9KbsEVZ405Y)
+    - [Oracle: Abstract class InputStream ](https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html)
 
