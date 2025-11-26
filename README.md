@@ -20,7 +20,8 @@ Este proyecto consiste en un programa desarrollado en Java, configurado con el g
 El sistema se conecta a un endpoint remoto mediante el protocolo HTTP, descarga los datos de los personajes, los procesa utilizando las clases `JSONObject` y `JSONArray`, y posteriormente los imprime con orden visual para facilitar su lectura.
 
 
-> \[¡NOTA!\] Este proyecto tiene fines educativos y está pensado para quienes desean aprender:
+> \[!NOTE\]
+>Este proyecto tiene fines educativos y está pensado para quienes desean aprender:
 > - Cómo funciona Maven
 > - Cómo consumir una API desde Java
 > - Cómo manipular estructuras JSON
@@ -49,6 +50,8 @@ Para ejecutar este proyecto, asegúrese de contar con:
 - Archivo pom.xml correctamente configurado con las dependencias:
     - `org.json`
     - `okhttp` (para peticiones más avanzadas)
+    - `jackson-databind` (para imprimir un JSON en orden)
+    - `jackson-core` (para formatear)
 
 ### Stack
 
@@ -56,10 +59,10 @@ Este proyecto utiliza:
 
 -   Java 11+
 - Maven como sistema de gestión del proyecto
-- HttpURLConnection para conectarse a la API
-- InputStream para la lectura de datos desde la conexión HTTP
-- JSONObject para interpretar objetos en formato JSON
-- JSONArray para navegar listas de elementos dentro de la respuesta JSON
+- `HttpURLConnection` para conectarse a la API
+- `InputStream` para la lectura de datos desde la conexión HTTP
+- `JSONObject` para interpretar objetos en formato JSON
+- `JSONArray` para navegar listas de elementos dentro de la respuesta JSON
 - Endpoint:
 
             https://rickandmortyapi.com/api/character
@@ -108,8 +111,15 @@ Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en 
 
 Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
 
+**Jackson, JsonNode y ObjectMapper**
 
-> \[TIP!\] Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
+Jackson es una biblioteca que contiene clases como `JsonNode`y `ObjectMapper`, las cuales nos sirven para representar los objetos (en este caso los JSONObjects) como árboles (LinkHashMap).
+Es decir, nos permite representar cualquier tipo de nodo JSON como objetos, o convertir de un JSONNode a un objeto.
+Esto facilita la manipulación, ya que gestiona de manera ordenada el recorrido y modificación de los datos.
+
+
+> \[!TIP\]
+>Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
 
   *Se puede acceder al proyecto a través de:* [Consume API with JSON](https://github.com/DianaHang/proyecto-json-api-edd)
 
