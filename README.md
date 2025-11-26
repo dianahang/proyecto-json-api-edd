@@ -117,11 +117,17 @@ Al realizar una petición HTTP, el servidor envía bytes, así que la superclase
 
 -   García Melgarejo Diana Karina.
 
-## Créditos
+## Referencias
 
 Este proyecto hace uso de la API pública:
 
-- Rick and Morty API — https://rickandmortyapi.com/
+- Rick and Morty API — https://rickandmortyapi.com/api/character
 
 Y fue desarrollado con fines académicos utilizando Java y Maven.
+
+- Otras referencias:
+    - [Consumir una API y deserealizar objeto en JSON en Java](https://youtu.be/9KbsEVZ405Y)
+    - [Oracle: Abstract class InputStream ](https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html)
+    - [Class ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.7/com/fasterxml/jackson/databind/ObjectMapper.html)
+    - [Stack Overflow: Correct set of dependencies for using jackson mapper](https://stackoverflow.com/questions/18429468/correct-set-of-dependencies-for-using-jackson-mapper)
 
