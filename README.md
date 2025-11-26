@@ -20,7 +20,8 @@ Este proyecto consiste en un programa desarrollado en Java, configurado con el g
 El sistema se conecta a un endpoint remoto mediante el protocolo HTTP, descarga los datos de los personajes, los procesa utilizando las clases `JSONObject` y `JSONArray`, y posteriormente los imprime con orden visual para facilitar su lectura.
 
 
-> \[!NOTE\] Este proyecto tiene fines educativos y está pensado para quienes desean aprender:
+> \[!NOTE\]
+> Este proyecto tiene fines educativos y está pensado para quienes desean aprender:
 > - Cómo funciona Maven
 > - Cómo consumir una API desde Java
 > - Cómo manipular estructuras JSON
@@ -109,7 +110,8 @@ Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en 
 Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
 
 
-> \[!TIP\] Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
+> \[!TIP\]
+> Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
 
   *Se puede acceder al proyecto a través de:* [Consume API with JSON](https://github.com/DianaHang/proyecto-json-api-edd)
 
