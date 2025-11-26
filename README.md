@@ -9,7 +9,7 @@
     -   [Contenido](#contenido)
     -   [Detalles](#detalles)
     -   [Autores](#autores)
-    -   [Créditos](#créditos)
+    -   [Referencias](#referencias)
 
 <!--toc:end-->
 
@@ -107,11 +107,11 @@ La estructura de la API tiene:
 
 Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en `{clave : valor}` y a su vez `JSONArray`, que interpreta las listas de estos objetos JSON.
 
-**¿Por qué se utiliza InputStream?**
+- **¿Por qué se utiliza InputStream?**
 
 Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
 
-**Jackson, JsonNode y ObjectMapper**
+- **Jackson, JsonNode y ObjectMapper**
 
 Jackson es una biblioteca que contiene clases como `JsonNode`y `ObjectMapper`, las cuales nos sirven para representar los objetos (en este caso los JSONObjects) como árboles (LinkHashMap).
 Es decir, nos permite representar cualquier tipo de nodo JSON como objetos, o convertir de un JSONNode a un objeto.
