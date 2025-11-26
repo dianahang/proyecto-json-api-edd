@@ -13,8 +13,8 @@ public class LectorJSONJackson {
 
         try {
             // Mandar a llamar métodos
-            String jsonString = leerAPI(endpoint);
-            imprimirJSONOrdenado(jsonString);
+            String jsonString = consumirAPI(endpoint);
+            imprimirJSON(jsonString);
 
         } catch (Exception e) {
             throw new RuntimeException("Error de ejecución: \n" + e);
@@ -22,7 +22,7 @@ public class LectorJSONJackson {
     }
 
     // Consumir API. Devuelve el JSON como String
-    public static String leerAPI(String urlString) throws Exception {
+    public static String consumirAPI(String urlString) throws Exception {
         // Instancia para la petición al endpoint
         URL url = new URL(urlString);
         // Generar conexión a protocolo HTTP con un cast
@@ -52,7 +52,7 @@ public class LectorJSONJackson {
     }
 
     // Imprimir JSON en orden y con formato
-    public static void imprimirJSONOrdenado(String jsonString) throws Exception {
+    public static void imprimirJSON(String jsonString) throws Exception {
 
         // Crear el ObjectMapper de Jackson
         ObjectMapper mapper = new ObjectMapper();
