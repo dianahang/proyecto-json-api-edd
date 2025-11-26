@@ -9,7 +9,7 @@
     -   [Contenido](#contenido)
     -   [Detalles](#detalles)
     -   [Autores](#autores)
-    -   [Créditos](#créditos)
+    -   [Referencias](#referencias)
 
 <!--toc:end-->
 
@@ -20,7 +20,7 @@ Este proyecto consiste en un programa desarrollado en Java, configurado con el g
 El sistema se conecta a un endpoint remoto mediante el protocolo HTTP, descarga los datos de los personajes, los procesa utilizando las clases `JSONObject` y `JSONArray`, y posteriormente los imprime con orden visual para facilitar su lectura.
 
 
-> \[¡NOTA!\] Este proyecto tiene fines educativos y está pensado para quienes desean aprender:
+> \[!NOTE\] Este proyecto tiene fines educativos y está pensado para quienes desean aprender:
 > - Cómo funciona Maven
 > - Cómo consumir una API desde Java
 > - Cómo manipular estructuras JSON
@@ -104,12 +104,12 @@ La estructura de la API tiene:
 
 Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en `{clave : valor}` y a su vez `JSONArray`, que interpreta las listas de estos objetos JSON.
 
-**¿Por qué se utiliza InputStream?**
+- **¿Por qué se utiliza InputStream?**
 
 Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
 
 
-> \[TIP!\] Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
+> \[!TIP\] Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
 
   *Se puede acceder al proyecto a través de:* [Consume API with JSON](https://github.com/DianaHang/proyecto-json-api-edd)
 
@@ -117,11 +117,15 @@ Al realizar una petición HTTP, el servidor envía bytes, así que la superclase
 
 -   García Melgarejo Diana Karina.
 
-## Créditos
+## Referencias
 
 Este proyecto hace uso de la API pública:
 
-- Rick and Morty API — https://rickandmortyapi.com/
+- Rick and Morty API — https://rickandmortyapi.com/api/character
 
 Y fue desarrollado con fines académicos utilizando Java y Maven.
+
+- Otras referencias:
+    - [Consumir una API y deserealizar objeto en JSON en Java](https://youtu.be/9KbsEVZ405Y)
+    - [Oracle: Abstract class InputStream ](https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html)
 
