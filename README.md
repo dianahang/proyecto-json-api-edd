@@ -50,6 +50,8 @@ Para ejecutar este proyecto, asegúrese de contar con:
 - Archivo pom.xml correctamente configurado con las dependencias:
     - `org.json`
     - `okhttp` (para peticiones más avanzadas)
+    - `jackson-databind` (para imprimir un JSON en orden)
+    - `jackson-core` (para formatear)
 
 ### Stack
 
@@ -57,10 +59,10 @@ Este proyecto utiliza:
 
 -   Java 11+
 - Maven como sistema de gestión del proyecto
-- HttpURLConnection para conectarse a la API
-- InputStream para la lectura de datos desde la conexión HTTP
-- JSONObject para interpretar objetos en formato JSON
-- JSONArray para navegar listas de elementos dentro de la respuesta JSON
+- `HttpURLConnection` para conectarse a la API
+- `InputStream` para la lectura de datos desde la conexión HTTP
+- `JSONObject` para interpretar objetos en formato JSON
+- `JSONArray` para navegar listas de elementos dentro de la respuesta JSON
 - Endpoint:
 
             https://rickandmortyapi.com/api/character
@@ -109,6 +111,7 @@ Debido a esto se utilizó `JSONObject`, pues interpreta estructuras de datos en 
 
 Al realizar una petición HTTP, el servidor envía bytes, así que la superclase abstracta `InputStream` permite recibir estos bytes y transformarlos a texto, para que sea legible.
 
+- **Jackson, JsonNode y ObjectMapper**
 
 > [!TIP] 
 > Se puede ampliar el proyecto añadiendo una interfaz gráfica que despliegue la información de los personajes con sus debidas imágenes (frontend).
@@ -130,4 +133,6 @@ Y fue desarrollado con fines académicos utilizando Java y Maven.
 - Otras referencias:
     - [Consumir una API y deserealizar objeto en JSON en Java](https://youtu.be/9KbsEVZ405Y)
     - [Oracle: Abstract class InputStream ](https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html)
+    - [Class ObjectMapper](https://fasterxml.github.io/jackson-databind/javadoc/2.7/com/fasterxml/jackson/databind/ObjectMapper.html)
+    - [Stack Overflow: Correct set of dependencies for using jackson mapper](https://stackoverflow.com/questions/18429468/correct-set-of-dependencies-for-using-jackson-mapper)
 
