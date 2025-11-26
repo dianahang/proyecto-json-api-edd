@@ -57,12 +57,15 @@ public class LectorJSONJackson {
         // Crear el ObjectMapper de Jackson
         ObjectMapper mapper = new ObjectMapper();
 
-        // Convertir el String JSON a un LinkedHashMap
-        JsonNode root = mapper.readTree(jsonString);
+        // Convertir el String JSON a un JsonNode (LinkHashMap)
+        JsonNode results = mapper.readTree(jsonString);
+
+        // Obtener el arreglo de los personajes
+        JsonNode personajes = results.get("results");
 
         // Imprimir el JSON formateado
         String jsonFormateado = mapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(root);
+                .writeValueAsString(personajes);
 
         System.out.println(jsonFormateado);
     }
